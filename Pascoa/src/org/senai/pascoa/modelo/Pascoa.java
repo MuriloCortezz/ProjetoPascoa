@@ -14,7 +14,7 @@ public class Pascoa {
 	private String nomeCompleto;
 	private String email;
 	private String telefone;
-	private String endereco;
+	private String endereço;
 	private String cep;
 
 	
@@ -23,7 +23,7 @@ public class Pascoa {
 		setNomeCompleto("");
 		setEmail("");
 		setTelefone("");
-		setEndereco("");
+		setEndereço("");
 		setCep("");
 	}
 		
@@ -57,12 +57,12 @@ public class Pascoa {
 		public void setTelefone(String telefone) {
 			this.telefone = telefone;
 		}
-		public String getEndereco() {
-			return endereco;
+		public String getEndereço() {
+			return endereço;
 		}
 
-		public void setEndereco(String endereco) {
-			this.endereco = endereco;
+		public void setEndereço(String endereço) {
+			this.endereço = endereço;
 		}
 		public String getCep() {
 			return cep;
@@ -106,7 +106,7 @@ public class Pascoa {
 					"	nome_completo  = ? ," + 
 					"	email     	   = ? ," + 
 					"	telefone       = ? ," + 
-					"	endereco       = ? ," + 
+					"	endereço       = ? ," + 
 					"	cep            = ? ," + 
 					" where cod        = ? ";
 			try {
@@ -115,7 +115,7 @@ public class Pascoa {
 				prepararSQL.setString(1, nomeCompleto);
 				prepararSQL.setString(2, email);
 				prepararSQL.setString(3, telefone);
-				prepararSQL.setString(4, endereco);
+				prepararSQL.setString(4, endereço);
 				prepararSQL.setString(5, cep);
 				prepararSQL.setInt(6, cod);
 				
@@ -140,7 +140,7 @@ public class Pascoa {
 					"	nome_completo  ," + 
 					"	email          ," + 
 					"	telefone       ," + 
-					"	endereco       ," + 
+					"	endereço       ," + 
 					"	cep            )" + 
 					
 					"values (?," + 
@@ -155,7 +155,7 @@ public class Pascoa {
 				prepararSQL.setString(1, nomeCompleto);
 				prepararSQL.setString(2, email);
 				prepararSQL.setString(3, telefone);
-				prepararSQL.setString(4, endereco);
+				prepararSQL.setString(4, endereço);
 				prepararSQL.setString(5, cep);
 				
 				
@@ -184,11 +184,11 @@ public class Pascoa {
 				Pascoa p = new Pascoa();
 				// o que esta entre aspas "nome_da_coluna_no_banco"
 				p.setCod(rs.getInt("cod"));
-				p.setNomeCompleto(rs.getString("nome_paciente"));
-				p.setEmail(rs.getString("status"));
-				p.setTelefone(rs.getString("local"));
-				p.setEndereco(rs.getString("ini_previsto"));
-				p.setCep(rs.getString("ini_cirurgia"));
+				p.setNomeCompleto(rs.getString("nome_completo"));
+				p.setEmail(rs.getString("email"));
+				p.setTelefone(rs.getString("telefone"));
+				p.setEndereço(rs.getString("endereço"));
+				p.setCep(rs.getString("cep"));
 				lsPainel.add(p);
 			}
 			ps.close();
@@ -214,13 +214,11 @@ public class Pascoa {
 			while (rs.next()) {
 				// o que esta entre aspas "nome_da_coluna_no_banco"
 				p.setCod(rs.getInt("cod"));
-				p.setNomePaciente(rs.getString("nome_paciente"));
-				p.setStatus(rs.getString("status"));
-				p.setLocal(rs.getString("local"));
-				p.setIniPrevisto(rs.getString("ini_previsto"));
-				p.setIniCirurgia(rs.getString("ini_cirurgia"));
-				p.setFimCirurgia(rs.getString("fim_cirurgia"));
-				p.setSaidaPrevista(rs.getString("saida_prevista"));
+				p.setNomeCompleto(rs.getString("nome_completo"));
+				p.setEmail(rs.getString("email"));
+				p.setTelefone(rs.getString("telefone"));
+				p.setEndereço(rs.getString("endereço"));
+				p.setCep(rs.getString("cep"));
 			}
 			ps.close();
 			conexao.close();
@@ -231,7 +229,7 @@ public class Pascoa {
 		return null;
 	}
 	
-	public String getCorStatus() {
+	/*public String getCorStatus() {
 			
 		if(status.equals("Pré-Operatório")) {
 			return "table-warning";
@@ -250,7 +248,7 @@ public class Pascoa {
 		}
 		
 		return "";
-	}
+	}*/
 
 	
 	

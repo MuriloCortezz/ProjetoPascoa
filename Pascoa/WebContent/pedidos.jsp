@@ -1,5 +1,5 @@
 <%@page import="org.apache.jasper.tagplugins.jstl.core.If"%>
-<%@page import="org.senai.cntrCirurgico.modelo.Painel"%>
+<%@page import="org.senai.pascoa.modelo.Pascoa"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -46,7 +46,7 @@ width: 100%;
         dados += "nome=" + document.getElementById("nome").value;
         dados += "&email=" + document.getElementById("email").value;
         dados += "&telefone=" + document.getElementById("telefone").value;
-        dados += "&endereco=" + document.getElementById("endereco").value;
+        dados += "&endereço=" + document.getElementById("endereço").value;
         dados += "&cep=" + document.getElementById("cep").value;
         dados += "&cod=" + document.getElementById("cod").value;
         
@@ -100,7 +100,7 @@ width: 100%;
       </script>
       
         <%
-          Painel painel = new Painel();
+          Pascoa painel = new Pascoa();
       
           if (request.getParameter("cod") != null) {
             int cod = Integer.parseInt(request.getParameter("cod"));
@@ -123,25 +123,25 @@ width: 100%;
 			<div class="form-row">
 				<div class="form-group col-md-6">
 					<label for="nome">Nome completo</label> <input type="text"
-						class="form-control" id="nome" value="<%out.print(painel.getNomePaciente());%>" placeholder="Nome completo">
+						class="form-control" id="nome" value="<%out.print(painel.getNomeCompleto());%>" placeholder="Nome completo">
 				</div>
 				<div class="form-group col-md-4">
 					<label for="email">E-mail</label> <input type="text"
-						class="form-control" id="email" value="<%out.print(painel.getLocal());%>" placeholder="E-mail">
+						class="form-control" id="email" value="<%out.print(painel.getEmail());%>" placeholder="E-mail">
 				</div>
 				<div class="form-group col-md-2">
 					<label for="telefone">Telefone</label> <input type="text"
-						class="form-control" id="telefone" value="<%out.print(painel.getLocal());%>" placeholder="(   )_____-____">
+						class="form-control" id="telefone" value="<%out.print(painel.getTelefone());%>" placeholder="(   )_____-____">
 				</div>
 			</div>
 			<div class="form-row">
 				<div class="form-group col-md-10">
 					<label for="endereço">Endereço</label> <input type="text"
-						class="form-control" id="endereco" value="<%out.print(painel.getLocal());%>" placeholder="Endereço">
+						class="form-control" id="endereço" value="<%out.print(painel.getEndereço());%>" placeholder="Endereço">
 				</div>
 				<div class="form-group col-md-2">
 					<label for="cep">CEP</label> <input type="text"
-						class="form-control" id="cep" value="<%out.print(painel.getLocal());%>" placeholder="CEP">
+						class="form-control" id="cep" value="<%out.print(painel.getCep());%>" placeholder="CEP">
 				</div>
 			</div>
 <h3>Escolha abaixo:</h3>

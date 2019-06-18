@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
-<%@page import="org.senai.cntrCirurgico.modelo.Painel"%>
+<%@page import="org.senai.pascoa.modelo.Pascoa"%>
 <html lang="pt">
 <head>
 <title>Painel de Pedidos</title>
@@ -27,7 +27,7 @@
 			<thead>
 				<tr>
 					<th width="25%">Nome Completo/th>
-					<th width="20%">EndereÃ§o</th>
+					<th width="20%">Endereço</th>
 					<th width="20%">E-mail</th>
 				</tr>
 			</thead>
@@ -44,14 +44,14 @@ function prepararEditar(cod){
 
 			<tbody>
 				<%
-					Painel painel = new Painel();
+					Pascoa painel = new Pascoa();
 
-					for (Painel p : painel.getLista()) {
+					for (Pascoa p : painel.getLista()) {
 						out.print("<tr onclick='prepararEditar("+p.getCod()+")'>");
 						//out.print("<td>"+p.getCod()+"</td>");
 						out.println("<td>" + p.getNomeCompleto() + "</td>");
 						//out.print("<td class='" + p.getCorStatus() + "'>" + p.getStatus() + "</td>");
-						out.print("<td>" + p.getEndereÃ§o() + "</td>");
+						out.print("<td>" + p.getEndereço() + "</td>");
 						out.print("<td>" + p.getEmail() + "</td>");
 						out.print("<tr>");
 
