@@ -137,7 +137,7 @@ width: 100%;
 			<div class="form-row">
 				<div class="form-group col-md-10">
 					<label for="endereço">Endereço</label> <input type="text"
-						class="form-control" id="endereço" value="<%out.print(painel.getEndereço());%>" placeholder="Endereço">
+						class="form-control" id="endereco" value="<%out.print(painel.getEndereco());%>" placeholder="Endereço">
 				</div>
 				<div class="form-group col-md-2">
 					<label for="cep">CEP</label> <input type="text"

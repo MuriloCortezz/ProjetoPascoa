@@ -18,11 +18,7 @@
 <body>
 
 	<div>
-		<img
-			src="http://www.df.gov.br/wp-conteudo/uploads/2015/10/Bandeira_do_Distrito_Federal_Brasil.png"
-			height="80" width="120"> Hospital Regional de
-		Taguatinga|Secretaria de Estado de Saï¿½de do Distrito Federal|
-		Pacientes no centro cirurgico
+		
 		<table class="table table-striped">
 			<thead>
 				<tr>
@@ -51,7 +47,7 @@ function prepararEditar(cod){
 						//out.print("<td>"+p.getCod()+"</td>");
 						out.println("<td>" + p.getNomeCompleto() + "</td>");
 						//out.print("<td class='" + p.getCorStatus() + "'>" + p.getStatus() + "</td>");
-						out.print("<td>" + p.getEndereço() + "</td>");
+						out.print("<td>" + p.getEndereco() + "</td>");
 						out.print("<td>" + p.getEmail() + "</td>");
 						out.print("<tr>");
 

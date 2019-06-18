@@ -19,7 +19,7 @@ public class ServletPascoa extends HttpServlet {
 		String nome = request.getParameter("nome");
 		String email = request.getParameter("email");
 		String telefone = request.getParameter("telefone");
-		String endereço = request.getParameter("endereço");
+		String endereco = request.getParameter("endereco");
 		String cep = request.getParameter("cep");
 		
 		
@@ -28,7 +28,7 @@ public class ServletPascoa extends HttpServlet {
 		obj.setNomeCompleto(nome);
 		obj.setEmail(email);
 		obj.setTelefone(telefone);
-		obj.setEndereço(endereço);
+		obj.setEndereco(endereco);
 		obj.setCep(cep);
 		
 		

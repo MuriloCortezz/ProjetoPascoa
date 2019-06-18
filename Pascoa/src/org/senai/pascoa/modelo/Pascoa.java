@@ -14,7 +14,7 @@ public class Pascoa {
 	private String nomeCompleto;
 	private String email;
 	private String telefone;
-	private String endereço;
+	private String endereco;
 	private String cep;
 
 	
@@ -23,7 +23,7 @@ public class Pascoa {
 		setNomeCompleto("");
 		setEmail("");
 		setTelefone("");
-		setEndereço("");
+		setEndereco("");
 		setCep("");
 	}
 		
@@ -57,12 +57,12 @@ public class Pascoa {
 		public void setTelefone(String telefone) {
 			this.telefone = telefone;
 		}
-		public String getEndereço() {
-			return endereço;
+		public String getEndereco() {
+			return endereco;
 		}
 
-		public void setEndereço(String endereço) {
-			this.endereço = endereço;
+		public void setEndereco(String endereco) {
+			this.endereco = endereco;
 		}
 		public String getCep() {
 			return cep;
@@ -106,7 +106,7 @@ public class Pascoa {
 					"	nome_completo  = ? ," + 
 					"	email     	   = ? ," + 
 					"	telefone       = ? ," + 
-					"	endereço       = ? ," + 
+					"	endereco       = ? ," + 
 					"	cep            = ? ," + 
 					" where cod        = ? ";
 			try {
@@ -115,7 +115,7 @@ public class Pascoa {
 				prepararSQL.setString(1, nomeCompleto);
 				prepararSQL.setString(2, email);
 				prepararSQL.setString(3, telefone);
-				prepararSQL.setString(4, endereço);
+				prepararSQL.setString(4, endereco);
 				prepararSQL.setString(5, cep);
 				prepararSQL.setInt(6, cod);
 				
@@ -140,7 +140,7 @@ public class Pascoa {
 					"	nome_completo  ," + 
 					"	email          ," + 
 					"	telefone       ," + 
-					"	endereço       ," + 
+					"	endereco       ," + 
 					"	cep            )" + 
 					
 					"values (?," + 
@@ -155,7 +155,7 @@ public class Pascoa {
 				prepararSQL.setString(1, nomeCompleto);
 				prepararSQL.setString(2, email);
 				prepararSQL.setString(3, telefone);
-				prepararSQL.setString(4, endereço);
+				prepararSQL.setString(4, endereco);
 				prepararSQL.setString(5, cep);
 				
 				
@@ -187,7 +187,7 @@ public class Pascoa {
 				p.setNomeCompleto(rs.getString("nome_completo"));
 				p.setEmail(rs.getString("email"));
 				p.setTelefone(rs.getString("telefone"));
-				p.setEndereço(rs.getString("endereço"));
+				p.setEndereco(rs.getString("endereco"));
 				p.setCep(rs.getString("cep"));
 				lsPainel.add(p);
 			}
@@ -217,7 +217,7 @@ public class Pascoa {
 				p.setNomeCompleto(rs.getString("nome_completo"));
 				p.setEmail(rs.getString("email"));
 				p.setTelefone(rs.getString("telefone"));
-				p.setEndereço(rs.getString("endereço"));
+				p.setEndereco(rs.getString("endereco"));
 				p.setCep(rs.getString("cep"));
 			}
 			ps.close();
