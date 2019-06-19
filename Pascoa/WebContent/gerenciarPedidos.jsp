@@ -44,9 +44,7 @@ function prepararEditar(cod){
 
 					for (Pascoa p : pascoa.getLista()) {
 						out.println("<tr onclick='prepararEditar("+p.getCod()+")'>");
-						//out.print("<td>"+p.getCod()+"</td>");
 						out.println("<td>" + p.getNomeCompleto() + "</td>");
-						//out.print("<td class='" + p.getCorStatus() + "'>" + p.getStatus() + "</td>");
 						out.print("<td>" + p.getEndereco() + "</td>");
 						out.print("<td>" + p.getEmail() + "</td>");
 						out.print("<tr>");
