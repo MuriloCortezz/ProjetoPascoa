@@ -78,7 +78,7 @@ public class Pascoa {
 		Connection conexao = new ConectarBD().getConectar();
 		
 		if(conexao != null) {
-			String sql = "delete from painel where cod = ? ";
+			String sql = "delete from pascoa where cod = ? ";
 			try {
 				PreparedStatement prepararSQL =
 						conexao.prepareStatement(sql);
@@ -102,7 +102,7 @@ public class Pascoa {
 		Connection conexao = new ConectarBD().getConectar();
 		
 		if(conexao != null) {
-			String sql = "update painel set " + 
+			String sql = "update pascoa set " + 
 					"	nome_completo  = ? ," + 
 					"	email     	   = ? ," + 
 					"	telefone       = ? ," + 
@@ -175,10 +175,10 @@ public class Pascoa {
 		try {
 			Connection conexao = new ConectarBD().getConectar();
 			PreparedStatement ps = 					
-					conexao.prepareStatement("select * from painel");
+					conexao.prepareStatement("select * from pascoa");
 			ResultSet rs = ps.executeQuery();
 			
-			List<Pascoa> lsPainel = new ArrayList<Pascoa>();
+			List<Pascoa> lsPascoa = new ArrayList<Pascoa>();
 			
 			while (rs.next()) {
 				Pascoa p = new Pascoa();
@@ -189,11 +189,11 @@ public class Pascoa {
 				p.setTelefone(rs.getString("telefone"));
 				p.setEndereco(rs.getString("endereco"));
 				p.setCep(rs.getString("cep"));
-				lsPainel.add(p);
+				lsPascoa.add(p);
 			}
 			ps.close();
 			conexao.close();
-			return lsPainel;
+			return lsPascoa;
 		} catch (Exception e) {
 
 		}		
@@ -201,12 +201,12 @@ public class Pascoa {
 	}
 	
 	
-	public Pascoa getPainel(int cod){		
+	public Pascoa getPascoa(int cod){		
 		try {
 			Connection conexao = new ConectarBD().getConectar();
 			PreparedStatement ps = 					
 					conexao.prepareStatement(
-							"select * from painel where cod = ? ");
+							"select * from pascoa where cod = ? ");
 			ps.setInt(1, cod);
 			ResultSet rs = ps.executeQuery();
 			
