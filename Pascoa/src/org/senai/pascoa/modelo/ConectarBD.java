@@ -9,9 +9,7 @@ public class ConectarBD {
 		
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			return DriverManager.getConnection("jdbc:mysql://localhost/pascoa", "root", "");
-			
-			
+			return DriverManager.getConnection("jdbc:mysql://localhost/pedidos_pascoa", "root", "");
 			
 		} catch (Exception e) {
 			System.out.println("erro de conexão");

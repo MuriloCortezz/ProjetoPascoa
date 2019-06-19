@@ -136,9 +136,9 @@ public class Pascoa {
 		Connection conexao = new ConectarBD().getConectar();
 		
 		if(conexao != null) {
-			String sql = "insert into painel(" + 
+			String sql = "insert into pascoa(" + 
 					"	nome_completo  ," + 
-					"	email          ," + 
+					"	email     	   ," + 
 					"	telefone       ," + 
 					"	endereco       ," + 
 					"	cep            )" + 
@@ -147,8 +147,8 @@ public class Pascoa {
 					"		?," + 
 					"		?," + 
 					"		?," + 
-					"		?," +  
-					"		)";
+					"		?)"; 
+					
 			try {
 				PreparedStatement prepararSQL =
 						conexao.prepareStatement(sql);
@@ -184,11 +184,11 @@ public class Pascoa {
 				Pascoa p = new Pascoa();
 				// o que esta entre aspas "nome_da_coluna_no_banco"
 				p.setCod(rs.getInt("cod"));
-				p.setNomeCompleto(rs.getString("nome_paciente"));
-				p.setEmail(rs.getString("status"));
-				p.setTelefone(rs.getString("local"));
-				p.setEndereco(rs.getString("ini_previsto"));
-				p.setCep(rs.getString("ini_cirurgia"));
+				p.setNomeCompleto(rs.getString("nome_completo"));
+				p.setEmail(rs.getString("email"));
+				p.setTelefone(rs.getString("telefone"));
+				p.setEndereco(rs.getString("endereco"));
+				p.setCep(rs.getString("cep"));
 				lsPainel.add(p);
 			}
 			ps.close();
@@ -214,13 +214,11 @@ public class Pascoa {
 			while (rs.next()) {
 				// o que esta entre aspas "nome_da_coluna_no_banco"
 				p.setCod(rs.getInt("cod"));
-				p.setNomePaciente(rs.getString("nome_paciente"));
-				p.setStatus(rs.getString("status"));
-				p.setLocal(rs.getString("local"));
-				p.setIniPrevisto(rs.getString("ini_previsto"));
-				p.setIniCirurgia(rs.getString("ini_cirurgia"));
-				p.setFimCirurgia(rs.getString("fim_cirurgia"));
-				p.setSaidaPrevista(rs.getString("saida_prevista"));
+				p.setNomeCompleto(rs.getString("nome_completo"));
+				p.setEmail(rs.getString("email"));
+				p.setTelefone(rs.getString("telefone"));
+				p.setEndereco(rs.getString("endereco"));
+				p.setCep(rs.getString("cep"));
 			}
 			ps.close();
 			conexao.close();
@@ -231,7 +229,7 @@ public class Pascoa {
 		return null;
 	}
 	
-	public String getCorStatus() {
+	/*public String getCorStatus() {
 			
 		if(status.equals("Pré-Operatório")) {
 			return "table-warning";
@@ -250,7 +248,7 @@ public class Pascoa {
 		}
 		
 		return "";
-	}
+	}*/
 
 	
 	
