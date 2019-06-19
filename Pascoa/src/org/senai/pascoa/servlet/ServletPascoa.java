@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.senai.pascoa.modelo.Pascoa;
 
-@WebServlet(name = "servletPainel", urlPatterns = "/servletPainel")
+@WebServlet(name = "servletPascoa", urlPatterns = "/servletPascoa")
 public class ServletPascoa extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)
@@ -32,11 +32,16 @@ public class ServletPascoa extends HttpServlet {
 		obj.setCep(cep);
 		
 		
+		boolean sucesso = false;
+		sucesso = obj.inserir();
+		
+		
+		
 		PrintWriter saida = response.getWriter();
 		
 		int cod = Integer.parseInt(request.getParameter("cod"));
 		
-		boolean sucesso = false;
+		
 		if(cod > 0) {
 			obj.setCod(cod);
 			if(request.getParameter("apagar") == null){

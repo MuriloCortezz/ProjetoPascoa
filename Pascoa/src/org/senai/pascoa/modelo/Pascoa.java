@@ -136,9 +136,9 @@ public class Pascoa {
 		Connection conexao = new ConectarBD().getConectar();
 		
 		if(conexao != null) {
-			String sql = "insert into painel(" + 
+			String sql = "insert into pascoa(" + 
 					"	nome_completo  ," + 
-					"	email          ," + 
+					"	email     	   ," + 
 					"	telefone       ," + 
 					"	endereco       ," + 
 					"	cep            )" + 
@@ -147,8 +147,8 @@ public class Pascoa {
 					"		?," + 
 					"		?," + 
 					"		?," + 
-					"		?," +  
-					"		)";
+					"		?)"; 
+					
 			try {
 				PreparedStatement prepararSQL =
 						conexao.prepareStatement(sql);

@@ -40,10 +40,10 @@ function prepararEditar(cod){
 
 			<tbody>
 				<%
-					Pascoa painel = new Pascoa();
+					Pascoa pascoa = new Pascoa();
 
-					for (Pascoa p : painel.getLista()) {
-						out.print("<tr onclick='prepararEditar("+p.getCod()+")'>");
+					for (Pascoa p : pascoa.getLista()) {
+						out.println("<tr onclick='prepararEditar("+p.getCod()+")'>");
 						//out.print("<td>"+p.getCod()+"</td>");
 						out.println("<td>" + p.getNomeCompleto() + "</td>");
 						//out.print("<td class='" + p.getCorStatus() + "'>" + p.getStatus() + "</td>");

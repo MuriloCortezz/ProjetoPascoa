@@ -45,8 +45,9 @@ width: 100%;
         
         dados += "nome=" + document.getElementById("nome").value;
         dados += "&email=" + document.getElementById("email").value;
+        
         dados += "&telefone=" + document.getElementById("telefone").value;
-        dados += "&endereço=" + document.getElementById("endereço").value;
+        dados += "&endereco=" + document.getElementById("endereco").value;
         dados += "&cep=" + document.getElementById("cep").value;
         dados += "&cod=" + document.getElementById("cod").value;
         
@@ -67,7 +68,7 @@ width: 100%;
           }
             }
         };	
-        xhttp.open("GET", "servletPainel?" + dadosForm(), true);
+        xhttp.open("GET", "servletPascoa?" + dadosForm(), true);
         xhttp.send();
       }
       function apagar(){
@@ -87,24 +88,21 @@ width: 100%;
           }
             }
         };
-        xhttp.open("GET", "servletPainel?" + dadosForm()+"&apagar", true);
+        xhttp.open("GET", "ServletPascoa?" + dadosForm()+"&apagar", true);
         xhttp.send();
         }
       }
       
       
-      function novo(){
-        
-        window.location.replace('gerenciarPainel.jsp');
-      }
+      
       </script>
       
         <%
-          Pascoa painel = new Pascoa();
+          Pascoa pascoa = new Pascoa();
       
           if (request.getParameter("cod") != null) {
             int cod = Integer.parseInt(request.getParameter("cod"));
-            painel = painel.getPainel(cod);
+            pascoa = pascoa.getPainel(cod);
           }
         %>
       
@@ -118,33 +116,34 @@ width: 100%;
 	<div class="container">
   <h2>Preencha seus dados</h2>
   <form id = "formulario">
-	<input type="hidden" value="<%out.print(painel.getCod());%>" id="cod" />
+	<input type="hidden" value="<%out.print(pascoa.getCod());%>" id="cod" />
 			<div id="msg"></div>
 			<div class="form-row">
 				<div class="form-group col-md-6">
 					<label for="nome">Nome completo</label> <input type="text"
-						class="form-control" id="nome" value="<%out.print(painel.getNomeCompleto());%>" placeholder="Nome completo">
+						class="form-control" id="nome" value="<%out.print(pascoa.getNomeCompleto());%>" placeholder="Nome completo">
 				</div>
 				<div class="form-group col-md-4">
 					<label for="email">E-mail</label> <input type="text"
-						class="form-control" id="email" value="<%out.print(painel.getEmail());%>" placeholder="E-mail">
+						class="form-control" id="email" value="<%out.print(pascoa.getEmail());%>" placeholder="E-mail">
 				</div>
+				
 				<div class="form-group col-md-2">
 					<label for="telefone">Telefone</label> <input type="text"
-						class="form-control" id="telefone" value="<%out.print(painel.getTelefone());%>" placeholder="(   )_____-____">
+						class="form-control" id="telefone" value="<%out.print(pascoa.getTelefone());%>" placeholder="(   )_____-____">
 				</div>
 			</div>
 			<div class="form-row">
 				<div class="form-group col-md-10">
-					<label for="endereço">Endereço</label> <input type="text"
-						class="form-control" id="endereco" value="<%out.print(painel.getEndereco());%>" placeholder="Endereço">
+					<label for="Endereço">Endereço</label> <input type="text"
+						class="form-control" id="endereco" value="<%out.print(pascoa.getEndereco());%>" placeholder="Endereço">
 				</div>
 				<div class="form-group col-md-2">
 					<label for="cep">CEP</label> <input type="text"
-						class="form-control" id="cep" value="<%out.print(painel.getCep());%>" placeholder="CEP">
+						class="form-control" id="cep" value="<%out.print(pascoa.getCep());%>" placeholder="CEP">
 				</div>
 			</div>
-<h3>Escolha abaixo:</h3>
+<!--  <h3>Escolha abaixo:</h3>
 			<div class="card-columns">
 				<div class="col-sm-4">
 					<div class="card" style="width: 18rem;">
@@ -393,18 +392,18 @@ width: 100%;
 						</div>
 					</div>
 				</div>
-			</div>
+			</div>-->
+			 
 			<div class=" card-columns">
 				<div class="col">
-					<button type="submit" class="btn btn-primary">Enivar
-						pedido</button>
+					<button type="submit" class="btn btn-primary" onclick="gravar()">Enivar pedido</button>
 
-					<button type="submit" class="btn btn-danger">Cancelar</button>
+					<button type="submit" class="btn btn-danger" onclick="apagar()">Cancelar</button>
 				</div>
 			</div>
 		</form>
-	</div>
-</div>
+	</div>  
+</div> 
 
 </body>
 
