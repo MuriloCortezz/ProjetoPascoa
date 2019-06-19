@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
-<%@page import="org.senai.cntrCirurgico.modelo.Painel"%>
+<%@page import="org.senai.pascoa.modelo.Pascoa"%>
 <html lang="pt">
 <head>
 <title>Painel de Pedidos</title>
