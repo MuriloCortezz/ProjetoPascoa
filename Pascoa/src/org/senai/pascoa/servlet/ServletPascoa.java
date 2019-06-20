@@ -32,8 +32,8 @@ public class ServletPascoa extends HttpServlet {
 		obj.setCep(cep);
 		
 		
-		boolean sucesso = false;
-		sucesso = obj.inserir();
+		
+		
 		
 		
 		
@@ -41,7 +41,7 @@ public class ServletPascoa extends HttpServlet {
 		
 		int cod = Integer.parseInt(request.getParameter("cod"));
 		
-		
+		boolean sucesso = false;
 		if(cod > 0) {
 			obj.setCod(cod);
 			if(request.getParameter("apagar") == null){

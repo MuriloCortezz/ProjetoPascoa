@@ -3,3 +3,11 @@
 .fundo{
 	background-image: url("img/ovobg.jpg");
 }
+
+img{
+	height:150px;
+}
+
+center{
+	background-image: url("ovobg.jpg");
+}

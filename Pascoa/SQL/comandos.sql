@@ -25,4 +25,4 @@ endereco     ,
 cep          )
 value('Murilo', 'murilocortez@aceoco.ao', '35629902', 'taguatinga norte', '72155418');
 -- consulta no banco de dados
-select * from painel;
+select * from Pascoa;

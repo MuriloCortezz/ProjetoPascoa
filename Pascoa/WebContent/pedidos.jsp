@@ -102,7 +102,7 @@ width: 100%;
       
           if (request.getParameter("cod") != null) {
             int cod = Integer.parseInt(request.getParameter("cod"));
-            pascoa = pascoa.getPainel(cod);
+            pascoa = pascoa.getPascoa(cod);
           }
         %>
       
@@ -143,7 +143,7 @@ width: 100%;
 						class="form-control" id="cep" value="<%out.print(pascoa.getCep());%>" placeholder="CEP">
 				</div>
 			</div>
-<!--  <h3>Escolha abaixo:</h3>
+ <h3>Escolha abaixo:</h3>
 			<div class="card-columns">
 				<div class="col-sm-4">
 					<div class="card" style="width: 18rem;">
@@ -392,7 +392,7 @@ width: 100%;
 						</div>
 					</div>
 				</div>
-			</div>-->
+			</div>
 			 
 			<div class=" card-columns">
 				<div class="col">
