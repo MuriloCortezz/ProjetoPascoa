@@ -1,0 +1,36 @@
+@charset "ISO-8859-1";
+
+/*body {
+	text-aling: center;
+	
+}*/
+
+.fundo {
+	background-image: url("../img/ovobg.jpg");
+
+	
+	position: absolute;
+	/*height: 210%;*/
+	opacity: 0.5;
+	/*left: 700px;*/
+	height:190px;
+	width: auto 0;
+	filter: blur(1px);
+	margin-bottom: 0px;
+	margin-top: 0px;
+	
+}
+/*.fundo{
+	background-image: url("../img/ovobg.jpg");
+}*/
+
+img{
+	height:150px;
+	margin-bottom: 20px;
+	margin-top: 20px;
+	/*background-image: url("../img/ovobg.jpg");*/
+}
+
+center{
+	background-image: url("ovobg.jpg");
+}
