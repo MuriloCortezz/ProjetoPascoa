@@ -16,15 +16,19 @@ public class Pascoa {
 	private String telefone;
 	private String endereco;
 	private String cep;
+	private String valor;
 
 	
 	
+	
+
 	public Pascoa(){
 		setNomeCompleto("");
 		setEmail("");
 		setTelefone("");
 		setEndereco("");
 		setCep("");
+		setValor("");
 	}
 		
 		public int getCod() {
@@ -71,7 +75,14 @@ public class Pascoa {
 		public void setCep(String cep) {
 			this.cep = cep;
 		}
+		
+		public String getValor() {
+			return valor;
+		}
 
+		public void setValor(String valor) {
+			this.valor = valor;
+		}
 
 	public boolean apagar() {
 
@@ -107,7 +118,8 @@ public class Pascoa {
 					"	email     	   = ? ," + 
 					"	telefone       = ? ," + 
 					"	endereco       = ? ," + 
-					"	cep            = ? ," + 
+					"	cep            = ? ," +
+					" 	valor		   = ? ," +
 					" where cod        = ? ";
 			try {
 				PreparedStatement prepararSQL =
@@ -117,7 +129,8 @@ public class Pascoa {
 				prepararSQL.setString(3, telefone);
 				prepararSQL.setString(4, endereco);
 				prepararSQL.setString(5, cep);
-				prepararSQL.setInt(6, cod);
+				prepararSQL.setString(6, valor);
+				prepararSQL.setInt(7, cod);
 				
 				prepararSQL.execute();
 				prepararSQL.close();
@@ -140,13 +153,15 @@ public class Pascoa {
 					"	nome_completo  ," + 
 					"	email     	   ," + 
 					"	telefone       ," + 
-					"	endereco       ," + 
-					"	cep            )" + 
+					"	endereco       ," +
+					"	cep       	   ," + 
+					"	valor          )" +
 					
 					"values (?," + 
 					"		?," + 
 					"		?," + 
 					"		?," + 
+					"		?," +
 					"		?)"; 
 					
 			try {
@@ -157,6 +172,7 @@ public class Pascoa {
 				prepararSQL.setString(3, telefone);
 				prepararSQL.setString(4, endereco);
 				prepararSQL.setString(5, cep);
+				prepararSQL.setString(6, valor);
 				
 				
 				prepararSQL.execute();
@@ -189,6 +205,7 @@ public class Pascoa {
 				p.setTelefone(rs.getString("telefone"));
 				p.setEndereco(rs.getString("endereco"));
 				p.setCep(rs.getString("cep"));
+				p.setValor(rs.getString("valor"));
 				lsPascoa.add(p);
 			}
 			ps.close();
@@ -219,6 +236,7 @@ public class Pascoa {
 				p.setTelefone(rs.getString("telefone"));
 				p.setEndereco(rs.getString("endereco"));
 				p.setCep(rs.getString("cep"));
+				p.setValor(rs.getString("valor"));
 			}
 			ps.close();
 			conexao.close();

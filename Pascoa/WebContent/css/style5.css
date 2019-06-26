@@ -6,29 +6,26 @@
 }*/
 
 .fundo {
-	background-image: url("../img/ovobg.jpg");
-
 	
 	position: absolute;
 	/*height: 210%;*/
 	opacity: 0.5;
 	/*left: 700px;*/
 	height:190px;
-	width: auto 0;
+	width: 1349px;
+	
 	filter: blur(1px);
 	margin-bottom: 0px;
 	margin-top: 0px;
 	
 }
-/*.fundo{
-	background-image: url("../img/ovobg.jpg");
-}*/
 
-img{
+.logo{
+	position: relative;
 	height:150px;
 	margin-bottom: 20px;
 	margin-top: 20px;
-	/*background-image: url("../img/ovobg.jpg");*/
+	
 }
 
 center{

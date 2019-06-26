@@ -39,12 +39,13 @@ body {
 		var listaOvos = [];
 
 		var valorTotal = 0;
-		
-		function escolhidos(ovo) {
-			var tamanho = ovo.id.split('-');
-			var valorUnitario = 0;
 
+		
+		function calcularValor(ovo){
 			// fazer um teste do tamanho 
+			// colocar dentro de uma function
+			var valorUnitario = 0;
+			var tamanho = ovo.id.split('-');
 			if (tamanho[1] == '250g') {
 				valorUnitario = 25;
 			}
@@ -54,21 +55,35 @@ body {
 			if (tamanho[1] == '500g') {
 				valorUnitario = 50;
 			}
-
+			// aqui é onde o calculo é feito
+			return valorUnitario*ovo.value;
+		}
+		
+		function escolhidos(ovo) {
+			valorTotal = 0;
 			var qt = listaOvos.length;
 
 			for (lstOvos in listaOvos) {
 				if (listaOvos[lstOvos].id == ovo.id) {
-					qt = lstOvos;					
+					qt = lstOvos;
 				}
 			}
-			
+
 			listaOvos[qt] = ovo;
 
+			for (lstOvos in listaOvos) {
+				if (listaOvos[lstOvos].value > 0) {
+					// aqui vamos chamar o método para fazer o calculo apenas dos que tem quantidade maior que 0
+					valorTotal += calcularValor(listaOvos[lstOvos]);					
+				}
+			}
+			// colocar na tema esse valor total
+			alert('valor total'+valorTotal);
+			
 		}
 
 		function dadosForm() {
-								
+
 			var dados = "";
 
 			dados += "nome=" + document.getElementById("nome").value;
@@ -76,24 +91,26 @@ body {
 			dados += "&telefone=" + document.getElementById("telefone").value;
 			dados += "&endereco=" + document.getElementById("endereco").value;
 			dados += "&cep=" + document.getElementById("cep").value;
+			dados += "&valor=" +valorTotal;
 			dados += "&cod=" + document.getElementById("cod").value;
 			
 			var ovosEscolhidos = "";
 			for (lstOvos in listaOvos) {
-				if (listaOvos[lstOvos].value > 0) {					
+				if (listaOvos[lstOvos].value > 0) {
 					alert(listaOvos[lstOvos].id);
-					ovosEscolhidos += "&"+listaOvos[lstOvos].id+"="+listaOvos[lstOvos].value;
+					ovosEscolhidos += "&" + listaOvos[lstOvos].id + "="
+							+ listaOvos[lstOvos].value;
 				}
 			}
 			dados += ovosEscolhidos;
 
 			alert(dados);
-			
+
 			return dados;
 		}
 
 		function gravar() {
-			dadosForm();
+			//dadosForm();
 
 			var xhttp = new XMLHttpRequest();
 			xhttp.onreadystatechange = function() {
@@ -107,7 +124,7 @@ body {
 					}
 				}
 			};
-			//xhttp.open("GET", "servletPascoa?" + dadosForm(), true);
+			xhttp.open("GET", "servletPascoa?" + dadosForm(), true);
 			xhttp.send();
 		}
 		function apagar() {
@@ -216,8 +233,9 @@ body {
 								<div class="row form-inline ">
 									<div class="col-sm-6">350g - R$30,00</div>
 									<div class="col-sm-4">
-										<select class="form-control" id="chocolate-350g" onchange="escolhidos(this)">
-										
+										<select class="form-control" id="chocolate-350g"
+											onchange="escolhidos(this)">
+
 											<option>0</option>
 											<option>1</option>
 											<option>2</option>
@@ -230,7 +248,8 @@ body {
 								<div class="row form-inline ">
 									<div class="col-sm-6">500g - R$50,00</div>
 									<div class="col-sm-4">
-										<select class="form-control" id="chocolate-500g" onchange="escolhidos(this)">
+										<select class="form-control" id="chocolate-500g"
+											onchange="escolhidos(this)">
 											<option>0</option>
 											<option>1</option>
 											<option>2</option>
@@ -253,7 +272,8 @@ body {
 								<div class="row form-inline ">
 									<div class="col-sm-6">250g - R$25,00</div>
 									<div class="col-sm-4">
-										<select class="form-control" id="coco-250g" onchange="escolhidos(this)">
+										<select class="form-control" id="coco-250g"
+											onchange="escolhidos(this)">
 											<option>0</option>
 											<option>1</option>
 											<option>2</option>
@@ -266,7 +286,8 @@ body {
 								<div class="row form-inline ">
 									<div class="col-sm-6">350g - R$30,00</div>
 									<div class="col-sm-4">
-										<select class="form-control" id="coco-350g" onchange="escolhidos(this)">
+										<select class="form-control" id="coco-350g"
+											onchange="escolhidos(this)">
 											<option>0</option>
 											<option>1</option>
 											<option>2</option>
@@ -279,7 +300,8 @@ body {
 								<div class="row form-inline ">
 									<div class="col-sm-6">500g - R$50,00</div>
 									<div class="col-sm-4">
-										<select class="form-control" id="coco-500g" onchange="escolhidos(this)">
+										<select class="form-control" id="coco-500g"
+											onchange="escolhidos(this)">
 											<option>0</option>
 											<option>1</option>
 											<option>2</option>
@@ -302,7 +324,8 @@ body {
 								<div class="row form-inline ">
 									<div class="col-sm-6">250g - R$25,00</div>
 									<div class="col-sm-4">
-										<select class="form-control"  id="Maracujá-250g" onchange="escolhidos(this)">
+										<select class="form-control" id="Maracuja-250g"
+											onchange="escolhidos(this)">
 											<option>0</option>
 											<option>1</option>
 											<option>2</option>
@@ -315,7 +338,8 @@ body {
 								<div class="row form-inline ">
 									<div class="col-sm-6">350g - R$30,00</div>
 									<div class="col-sm-4">
-										<select class="form-control" id="Maracujá-350g" onchange="escolhidos(this)">
+										<select class="form-control" id="Maracuja-350g"
+											onchange="escolhidos(this)">
 											<option>0</option>
 											<option>1</option>
 											<option>2</option>
@@ -328,7 +352,8 @@ body {
 								<div class="row form-inline ">
 									<div class="col-sm-6">500g - R$50,00</div>
 									<div class="col-sm-4">
-										<select class="form-control" id="Maracujá-500g" onchange="escolhidos(this)">
+										<select class="form-control" id="Maracuja-500g"
+											onchange="escolhidos(this)">
 											<option>0</option>
 											<option>1</option>
 											<option>2</option>
@@ -353,7 +378,8 @@ body {
 								<div class="row form-inline ">
 									<div class="col-sm-6">250g - R$25,00</div>
 									<div class="col-sm-4">
-										<select class="form-control" id="Mousse-250g" onchange="escolhidos(this)">
+										<select class="form-control" id="Mousse-250g"
+											onchange="escolhidos(this)">
 											<option>0</option>
 											<option>1</option>
 											<option>2</option>
@@ -366,7 +392,8 @@ body {
 								<div class="row form-inline ">
 									<div class="col-sm-6">350g - R$30,00</div>
 									<div class="col-sm-4">
-										<select class="form-control" id="Mousse-350g" onchange="escolhidos(this)">
+										<select class="form-control" id="Mousse-350g"
+											onchange="escolhidos(this)">
 											<option>0</option>
 											<option>1</option>
 											<option>2</option>
@@ -379,7 +406,8 @@ body {
 								<div class="row form-inline ">
 									<div class="col-sm-6">500g - R$50,00</div>
 									<div class="col-sm-4">
-										<select class="form-control" id="Mousse-500g" onchange="escolhidos(this)">
+										<select class="form-control" id="Mousse-500g"
+											onchange="escolhidos(this)">
 											<option>0</option>
 											<option>1</option>
 											<option>2</option>
@@ -403,7 +431,8 @@ body {
 								<div class="row form-inline ">
 									<div class="col-sm-6">250g - R$25,00</div>
 									<div class="col-sm-4">
-										<select class="form-control" id="Pmel-250g" onchange="escolhidos(this)">
+										<select class="form-control" id="Pmel-250g"
+											onchange="escolhidos(this)">
 											<option>0</option>
 											<option>1</option>
 											<option>2</option>
@@ -416,7 +445,8 @@ body {
 								<div class="row form-inline ">
 									<div class="col-sm-6">350g - R$30,00</div>
 									<div class="col-sm-4">
-										<select class="form-control" id="Pmel-350g" onchange="escolhidos(this)">
+										<select class="form-control" id="Pmel-350g"
+											onchange="escolhidos(this)">
 											<option>0</option>
 											<option>1</option>
 											<option>2</option>
@@ -429,7 +459,8 @@ body {
 								<div class="row form-inline ">
 									<div class="col-sm-6">500g - R$50,00</div>
 									<div class="col-sm-4">
-										<select class="form-control" id="Pmel-500g" onchange="escolhidos(this)">
+										<select class="form-control" id="Pmel-500g"
+											onchange="escolhidos(this)">
 											<option>0</option>
 											<option>1</option>
 											<option>2</option>

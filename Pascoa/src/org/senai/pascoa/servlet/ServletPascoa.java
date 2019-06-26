@@ -21,6 +21,7 @@ public class ServletPascoa extends HttpServlet {
 		String telefone = request.getParameter("telefone");
 		String endereco = request.getParameter("endereco");
 		String cep = request.getParameter("cep");
+		String valor = request.getParameter("valor");
 		
 		
 
@@ -30,6 +31,7 @@ public class ServletPascoa extends HttpServlet {
 		obj.setTelefone(telefone);
 		obj.setEndereco(endereco);
 		obj.setCep(cep);
+		obj.setValor(valor);
 		
 		
 		

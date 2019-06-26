@@ -20,24 +20,27 @@
 <body>
 
 	<div>
-
+		<div>
 		<img class="fundo" src="img/ovobg.jpg" />
-
+		
 
 		<center>
 			<div>
-				<img src="img/logo1.png" />
+				<img class="logo" src="img/logo1.png" />
 			</div>
 		</center>
-
+</div>
 		<div class=body>
 
 			<table class="table table-striped">
 				<thead>
 					<tr>
-						<th width="25%">Nome Completo</th>
+						<th width="20%">Nome Completo</th>
 						<th width="20%">Endereço</th>
-						<th width="20%">E-mail</th>
+						<th width="20%">Telefone</th>
+						<th width="10%">Valor</th>
+						<th width="20%">Ovos</th>
+						
 					</tr>
 				</thead>
 
@@ -54,11 +57,13 @@
 						Pascoa pascoa = new Pascoa();
 
 						for (Pascoa p : pascoa.getLista()) {
-							out.println("<tr onclick='prepararEditar(" + p.getCod() + ")'>");
+							out.println("<tr>");
 							out.println("<td>" + p.getNomeCompleto() + "</td>");
 							out.print("<td>" + p.getEndereco() + "</td>");
 							out.print("<td>" + p.getEmail() + "</td>");
-							out.print("<tr>");
+							out.print("<td>" + p.getTelefone() + "</td>");
+							out.print("<td>" + p.getValor() + "</td>");
+							out.print("</tr>");
 
 						}
 					%>
