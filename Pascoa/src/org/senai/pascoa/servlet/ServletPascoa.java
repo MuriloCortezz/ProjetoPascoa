@@ -22,7 +22,32 @@ public class ServletPascoa extends HttpServlet {
 		String endereco = request.getParameter("endereco");
 		String cep = request.getParameter("cep");
 		String valor = request.getParameter("valor");
+		String listaOpcaoOvos[] = 
+			{"chocolate-350g",
+			 "chocolate-250g",
+			 "chocolate-500g",
+			 "coco-250g",
+			 "coco-350g",
+			 "coco-500g",
+			 "Maracuja-250g",
+			 "Maracuja-350g",
+			 "Maracuja-350g",
+			 "Maracuja-500g",
+			 "Mousse-250g",
+			 "Mousse-350g",
+			 "Mousse-500g",
+			 "Pmel-250g",
+			 "Pmel-350g",
+			 "Pmel-500g"};
 		
+		String ovos = "";
+		// testas quais chocolates foram escolhidos.		
+		for (String opcOvo : listaOpcaoOvos) {
+			String ovo = request.getParameter(opcOvo);
+			if (ovo != null) {
+				ovos += opcOvo+" x "+ovo+"<br>";
+			}			
+		}
 		
 
 		Pascoa obj = new Pascoa();
@@ -32,8 +57,7 @@ public class ServletPascoa extends HttpServlet {
 		obj.setEndereco(endereco);
 		obj.setCep(cep);
 		obj.setValor(valor);
-		
-		
+		obj.setOvos(ovos);
 		
 		
 		

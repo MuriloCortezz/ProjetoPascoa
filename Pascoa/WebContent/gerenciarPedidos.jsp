@@ -35,11 +35,13 @@
 			<table class="table table-striped">
 				<thead>
 					<tr>
-						<th width="20%">Nome Completo</th>
-						<th width="20%">Endereço</th>
-						<th width="20%">Telefone</th>
-						<th width="10%">Valor</th>
-						<th width="20%">Ovos</th>
+						<th width="7%">Nome Completo</th>
+						<th width="5%">Endereço</th>
+						<th width="5%">Email</th>
+						<th width="5%">Telefone</th>
+						<th width="5%">Valor</th>
+						<th width="5%">Ovos</th>
+						<th width="5%">Entregue</th>
 						
 					</tr>
 				</thead>
@@ -63,6 +65,8 @@
 							out.print("<td>" + p.getEmail() + "</td>");
 							out.print("<td>" + p.getTelefone() + "</td>");
 							out.print("<td>" + p.getValor() + "</td>");
+							out.print("<td>" + p.getOvos() + "</td>");
+							out.print("<td>" + p.getEntregue() + "</td>");
 							out.print("</tr>");
 
 						}
