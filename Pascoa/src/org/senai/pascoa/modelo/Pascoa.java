@@ -19,12 +19,7 @@ public class Pascoa {
 	private String valor;
 	private String ovos;
 	private String entregue;
-	
-
-	
-	
-	
-
+	private String data;
 	
 
 
@@ -37,6 +32,7 @@ public class Pascoa {
 		setValor("");
 		setOvos("");
 		setEntregue("");
+		setData("");
 		}
 		
 		public int getCod() {
@@ -108,7 +104,14 @@ public class Pascoa {
 		public void setEntregue(String entregue) {
 			this.entregue = entregue;
 		}
+		
+		public String getData() {
+			return data;
+		}
 
+		public void setData(String data) {
+			this.data = data;
+		}
 	public boolean apagar() {
 
 		Connection conexao = new ConectarBD().getConectar();
@@ -216,11 +219,11 @@ public class Pascoa {
 		return false;
 	}
 	
-	public List<Pascoa> getLista(){		
+	public List<Pascoa> getLista(String historico){		
 		try {
 			Connection conexao = new ConectarBD().getConectar();
 			PreparedStatement ps = 					
-					conexao.prepareStatement("select * from pascoa");
+					conexao.prepareStatement("select * from pascoa where entregue is "+historico+" null order by nome_completo");			
 			ResultSet rs = ps.executeQuery();
 			
 			List<Pascoa> lsPascoa = new ArrayList<Pascoa>();
@@ -237,6 +240,7 @@ public class Pascoa {
 				p.setValor(rs.getString("valor"));
 				p.setOvos(rs.getString("ovos"));
 				p.setEntregue(rs.getString("entregue"));
+				p.setData(rs.getString("data"));
 				lsPascoa.add(p);
 			}
 			ps.close();
@@ -279,29 +283,31 @@ public class Pascoa {
 		return null;
 	}
 	
-	/*public String getCorStatus() {
+		
+	
+	public boolean concluir(int cod) {
+
+		Connection conexao = new ConectarBD().getConectar();
+		
+		if(conexao != null) {
+			String sql = "update pascoa set " + 
+					"	entregue  = 'sim' "+
+					" where cod        = ? ";
+			try {
+				PreparedStatement prepararSQL =
+						conexao.prepareStatement(sql);
+				prepararSQL.setInt(1, cod);
+				
+				prepararSQL.execute();
+				prepararSQL.close();
+				return true;
+			} catch (SQLException e) {
+				e.printStackTrace();
+				return false;
+			}
 			
-		if(status.equals("Pré-Operatório")) {
-			return "table-warning";
 		}
-
-		if(status.equals("Em Sala Cirúrgica")) {
-			return "table-danger";
-		}		
-		
-		if(status.equals("Em Recuperação")) {
-			return "table-success";
-		}
-
-		if(status.equals("Transferido")) {
-			return "table-primary";
-		}
-		
-		return "";
-	}*/
-
-	
-	
-	
+		return false;
+	}	
 	
 }

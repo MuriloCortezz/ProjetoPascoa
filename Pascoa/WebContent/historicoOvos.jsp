@@ -22,7 +22,6 @@
 	<div>
 		<div>
 			<img class="fundo" src="img/ovobg.jpg" />
-			
 
 
 			<center>
@@ -32,8 +31,7 @@
 			</center>
 		</div>
 
-<a href = "gerenciarPedidos.jsp?" type = "onclick">Pedidos</a>
-<a href = "gerenciarPedidos.jsp?historico" type = "onclick">Histórico</a>
+
 		<script type="text/javascript">
 			function concluir(cod) {
 
@@ -62,13 +60,9 @@
 				<thead>
 					<tr>
 						<th width="7%">Nome Completo</th>
-						<th width="5%">Endereço</th>
-						<th width="5%">Email</th>
-						<th width="5%">Telefone</th>
 						<th width="5%">Valor</th>
 						<th width="5%">Ovos</th>
-						<th width="5%">Entregue</th>
-						<th width="5%">Data</th>
+						<th width="5%">Datas</th>
 
 
 					</tr>
@@ -84,33 +78,15 @@
 
 				<tbody>
 					<%
-					
-					String historico = request.getParameter("historico");
-					
-					if(historico != null){
-						historico = "not";
-					}else{
-						historico = "";
-					}
-					
 						Pascoa pascoa = new Pascoa();
-						for (Pascoa p : pascoa.getLista(historico)) {
+
+						for (Pascoa p : pascoa.getLista()) {
 							out.println("<tr>");
 							out.println("<td>" + p.getNomeCompleto() + "</td>");
-							out.print("<td>" + p.getEndereco() + "</td>");
-							out.print("<td>" + p.getEmail() + "</td>");
-							out.print("<td>" + p.getTelefone() + "</td>");
 							out.print("<td>" + p.getValor() + "</td>");
 							out.print("<td>" + p.getOvos() + "</td>");
-							if(historico.equals("")){
-								out.print("<td <button type='button' class='btn btn-danger' onclick='concluir(" + p.getCod()
-								+ ")'>Concluir</button> </td>");
-							
-							}else{
-								out.print("<td class='btn btn-success'>Concluído</td>");	
-							}
-							
-							
+							out.print("<td <button type='button' class='btn btn-danger' onclick='concluir(" + p.getCod()
+									+ ")'>Concluir</button> </td>");
 							out.print("</tr>");
 
 						}

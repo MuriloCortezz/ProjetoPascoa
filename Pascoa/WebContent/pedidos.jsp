@@ -478,7 +478,7 @@ body {
 
 				<div class=" card-columns">
 					<div class="col">
-						<button type="button" class="btn btn-primary" onclick="gravar()">Enivar
+						<button type="button" class="btn btn-primary" onclick="gravar()">Enviar
 							pedido</button>
 
 						<button type="button" class="btn btn-danger" onclick="apagar()">Cancelar</button>
