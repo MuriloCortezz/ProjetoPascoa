@@ -2,6 +2,8 @@ package org.senai.pascoa.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -51,7 +53,9 @@ public class ServletPascoa extends HttpServlet {
 			obj.setValor(valor);
 			obj.setOvos(ovos);
 
-			
+			Date dataAtual = new Date(); 
+			SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");			
+			obj.setData(sdf.format(dataAtual));
 
 			int cod = Integer.parseInt(request.getParameter("cod"));
 

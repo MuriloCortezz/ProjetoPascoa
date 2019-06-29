@@ -110,7 +110,7 @@
 								out.print("<td class='btn btn-success'>Concluído</td>");	
 							}
 							
-							
+							out.print("<td>" + p.getData() + "</td>");
 							out.print("</tr>");
 
 						}

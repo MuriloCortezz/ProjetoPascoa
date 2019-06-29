@@ -185,12 +185,14 @@ public class Pascoa {
 					"	endereco       ," +
 					"	cep       	   ," +
 					"	valor      	   ," +
-					"	ovos          )" +
+					"	ovos      	   ," +
+					"	data          )" +
 					
 					"values (?," + 
 					"		?," + 
 					"		?," + 
 					"		?," + 
+					"		?," +
 					"		?," +
 					"		?," +
 					"		?)"; 
@@ -205,6 +207,7 @@ public class Pascoa {
 				prepararSQL.setString(5, cep);
 				prepararSQL.setString(6, valor);
 				prepararSQL.setString(7, ovos);
+				prepararSQL.setString(8, data);
 				
 				
 				prepararSQL.execute();
@@ -273,6 +276,7 @@ public class Pascoa {
 				p.setCep(rs.getString("cep"));
 				p.setValor(rs.getString("valor"));
 				p.setOvos(rs.getString("ovos"));
+				p.setData(rs.getString("data"));
 			}
 			ps.close();
 			conexao.close();
