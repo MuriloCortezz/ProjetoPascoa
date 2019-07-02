@@ -9,10 +9,14 @@ create table pascoa(
 -- cÃ³digo unico dentro da tabela
 cod            int primary key auto_increment,
 nome_completo  varchar(100),
-email          varchar(20),
+email          varchar(50),
 telefone       varchar(20),
-endereco       varchar(5),
-cep            varchar(5)
+endereco       varchar(200),
+cep            varchar(100),
+valor 		   varchar(100),
+ovos		   varchar(200),
+entregue	   varchar(3),
+data	       varchar(16)
 
 );
 --DML(Linguagem de manipulação de dados)
@@ -22,7 +26,11 @@ nome_completo,
 email        ,
 telefone     ,
 endereco     ,
-cep          )
-value('Murilo', 'murilocortez@aceoco.ao', '35629902', 'taguatinga norte', '72155418');
+cep          ,
+valor 		 ,
+ovos		 ,
+entregue	 ,
+data	     )
+/*value('Murilo', 'murilocortez@aceoco.ao', '35629902', 'taguatinga norte', '72155418');*/
 -- consulta no banco de dados
 select * from Pascoa;

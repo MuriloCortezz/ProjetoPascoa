@@ -16,6 +16,10 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="jquery/jquery-3.2.1.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
+Telefone: <input type="text" class="telefone" />
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <title>Ovo de Páscoa</title>
 <style>
@@ -148,7 +152,21 @@ body {
 						true);
 				xhttp.send();
 			}
+			
+			
+			$('.telefone-mask').mask('(99) 9999-99999');
+			$('.telefone-mask').blur(function(event) {
+			   if($(this).val().length == 15){ // Celular com 9 dígitos + 2 dígitos DDD e 4 da máscara
+			      $(this).mask('(99) 99999-9999');
+			   } else {
+			      $(this).mask('(99) 9999-99999');
+			   }
+			});
+			
 		}
+			
+			
+
 	</script>
 
 	<%
@@ -187,11 +205,16 @@ body {
 							value="<%out.print(pascoa.getEmail());%>" placeholder="E-mail">
 					</div>
 
+					
 					<div class="form-group col-md-2">
-						<label for="telefone">Telefone</label> <input type="text"
-							class="form-control" id="telefone"
+						<label for="telefone">Telefone</label> <input type="tel" name="telefone" 
+							class="form-control" id="telefone" maxlength="12"
 							value="<%out.print(pascoa.getTelefone());%>"
-							placeholder="(   )_____-____">
+							placeholder="(##)####-####"  >
+							<script>$("#telefone").mask("(99) 9999-99999");</script>
+							
+							
+							
 					</div>
 				</div>
 				<div class="form-row">
@@ -203,7 +226,7 @@ body {
 					</div>
 					<div class="form-group col-md-2">
 						<label for="cep">CEP</label> <input type="text"
-							class="form-control" id="cep"
+							class="form-control" id="cep" maxlength="9"
 							value="<%out.print(pascoa.getCep());%>" placeholder="CEP">
 					</div>
 				</div>
