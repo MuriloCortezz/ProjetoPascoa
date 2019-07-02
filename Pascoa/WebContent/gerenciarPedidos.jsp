@@ -18,11 +18,27 @@
 <link rel="stylesheet" href="css/style5.css">
 </head>
 <body>
-
+	<nav class="navbar navbar-expand-lg navbar-light bg-warning">
+		<a class="navbar-brand" href="pedidos.jsp">Pedidos</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#navbarNav" aria-controls="navbarNav"
+			aria-expanded="false" aria-label="Alterna navegação">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNav">
+			<ul class="navbar-nav">
+				<li class="nav-item active"><a class="nav-link"
+					href="gerenciarPedidos.jsp?">Painel de Pedidos <span
+						class="sr-only">(Página atual)</span></a></li>
+				<li class="nav-item active"><a class="nav-link"
+					href="gerenciarPedidos.jsp?historico">Histórico</a></li>
+			</ul>
+		</div>
+	</nav>
 	<div>
 		<div>
 			<img class="fundo" src="img/ovobg.jpg" />
-			
+
 
 
 			<center>
@@ -32,8 +48,6 @@
 			</center>
 		</div>
 
-<a href = "gerenciarPedidos.jsp?" class="btn btn-warning" type = "button">Pedidos</a>
-<a href = "gerenciarPedidos.jsp?historico"  class="btn btn-secondary" type = "button">Histórico</a>
 		<script type="text/javascript">
 			function concluir(cod) {
 
@@ -84,15 +98,14 @@
 
 				<tbody>
 					<%
-					
-					String historico = request.getParameter("historico");
-					
-					if(historico != null){
-						historico = "not";
-					}else{
-						historico = "";
-					}
-					
+						String historico = request.getParameter("historico");
+
+						if (historico != null) {
+							historico = "not";
+						} else {
+							historico = "";
+						}
+
 						Pascoa pascoa = new Pascoa();
 						for (Pascoa p : pascoa.getLista(historico)) {
 							out.println("<tr>");
@@ -102,14 +115,14 @@
 							out.print("<td>" + p.getTelefone() + "</td>");
 							out.print("<td>" + p.getValor() + "</td>");
 							out.print("<td>" + p.getOvos() + "</td>");
-							if(historico.equals("")){
+							if (historico.equals("")) {
 								out.print("<td <button type='button' class='btn btn-danger' onclick='concluir(" + p.getCod()
-								+ ")'>Concluir</button> </td>");
-							
-							}else{
-								out.print("<td class='btn btn-success'>Concluído</td>");	
+										+ ")'>Concluir</button> </td>");
+
+							} else {
+								out.print("<td class='btn btn-success'>Concluído</td>");
 							}
-							
+
 							out.print("<td>" + p.getData() + "</td>");
 							out.print("</tr>");
 
