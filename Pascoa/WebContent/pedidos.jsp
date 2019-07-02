@@ -19,7 +19,6 @@
 <script type="text/javascript" src="jquery/jquery-3.2.1.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
-Telefone: <input type="text" class="telefone" />
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <title>Ovo de Páscoa</title>
 <style>
@@ -184,7 +183,9 @@ body {
 	<div class=body>
 		<nav class="navbar navbar-expand-sm "
 			style="background-color: #D2691E; color: White;">
-			<h2>Bem-vindo ao nosso site de Óvos de Páscoa.</h2>
+			<div><h2>Bem-vindo ao nosso site de Óvos de Páscoa.</h2>
+			<form></form>
+		</div>
 		</nav>
 		<div class="container">
 			<h2>Preencha seus dados</h2>
@@ -504,7 +505,9 @@ body {
 						<button type="button" class="btn btn-primary" onclick="gravar()">Enviar
 							pedido</button>
 
-						<button type="button" class="btn btn-danger" onclick="apagar()">Cancelar</button>
+						<button type="button" class="btn btn-danger" onclick="apagar()">Cancelar</button><br>
+						<a href="http://localhost:8080/Pascoa/gerenciarPedidos.jsp" type="button" class="btn btn-info" >Painel de Pedidos</a>
+						
 					</div>
 				</div>
 			</form>

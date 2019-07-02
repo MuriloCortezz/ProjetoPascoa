@@ -32,8 +32,8 @@
 			</center>
 		</div>
 
-<a href = "gerenciarPedidos.jsp?" type = "onclick">Pedidos</a>
-<a href = "gerenciarPedidos.jsp?historico" type = "onclick">Histórico</a>
+<a href = "gerenciarPedidos.jsp?" class="btn btn-warning" type = "button">Pedidos</a>
+<a href = "gerenciarPedidos.jsp?historico"  class="btn btn-secondary" type = "button">Histórico</a>
 		<script type="text/javascript">
 			function concluir(cod) {
 
