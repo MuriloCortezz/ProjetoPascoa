@@ -38,6 +38,31 @@ body {
 </head>
 
 <body>
+
+<!-- Botão para acionar modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Pedido Enviado</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div id="msg"></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick= "window.location.replace('pedidos.jsp');" >Ok</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
 	<script type="text/javascript">
 		var listaOvos = [];
 
@@ -81,7 +106,7 @@ body {
 				}
 			}
 			// colocar na tema esse valor total
-			alert('valor total'+valorTotal);
+			//alert('valor total'+valorTotal);
 			
 		}
 
@@ -100,14 +125,14 @@ body {
 			var ovosEscolhidos = "";
 			for (lstOvos in listaOvos) {
 				if (listaOvos[lstOvos].value > 0) {
-					alert(listaOvos[lstOvos].id);
+					//alert(listaOvos[lstOvos].id);
 					ovosEscolhidos += "&" + listaOvos[lstOvos].id + "="
 							+ listaOvos[lstOvos].value;
 				}
 			}
 			dados += ovosEscolhidos;
 
-			alert(dados);
+			//alert(dados);
 
 			return dados;
 		}
@@ -122,6 +147,7 @@ body {
 					document.getElementById("msg").innerHTML = msg;
 					if (msg == "Gravado com sucesso") {
 						document.getElementById("msg").className = "alert alert-info";
+						
 					} else {
 						document.getElementById("msg").className = "alert alert-danger";
 					}
@@ -130,28 +156,11 @@ body {
 			xhttp.open("GET", "servletPascoa?" + dadosForm(), true);
 			xhttp.send();
 		}
-		function apagar() {
+		function apagar() {			
 			if (confirm("Realmente deseja apagar esse registro??")) {
-				var xhttp = new XMLHttpRequest();
-				xhttp.onreadystatechange = function() {
-					if (this.readyState == 4 && this.status == 200) {
-						var msg = xhttp.responseText;
-
-						if (msg == "Gravado com sucesso") {
-							document.getElementById("msg").className = "alert alert-info";
-							document.getElementById("msg").innerHTML = "Informação apagada";
-							document.getElementById("formulario").reset();
-						} else {
-							document.getElementById("msg").className = "alert alert-danger";
-							document.getElementById("msg").innerHTML = "Erro ao apagar";
-						}
-					}
-				};
-				xhttp.open("GET", "ServletPascoa?" + dadosForm() + "&apagar",
-						true);
-				xhttp.send();
+				window.location.replace('pedidos.jsp');
 			}
-			
+		}
 			
 			$('.telefone-mask').mask('(99) 9999-99999');
 			$('.telefone-mask').blur(function(event) {
@@ -162,7 +171,7 @@ body {
 			   }
 			});
 			
-		}
+		
 			
 			
 
@@ -192,7 +201,7 @@ body {
 			<form id="formulario">
 				<input type="hidden" value="<%out.print(pascoa.getCod());%>"
 					id="cod" />
-				<div id="msg"></div>
+				
 				<div class="form-row">
 					<div class="form-group col-md-6">
 						<label for="nome">Nome completo</label> <input type="text"
@@ -502,8 +511,8 @@ body {
 
 				<div class=" card-columns">
 					<div class="col">
-						<button type="button" class="btn btn-primary" onclick="gravar()">Enviar
-							pedido</button>
+						<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalExemplo" onclick="gravar()">  Enviar Pedido
+</button>
 
 						<button type="button" class="btn btn-danger" onclick="apagar()">Cancelar</button><br>
 						<a href="http://localhost:8080/Pascoa/gerenciarPedidos.jsp" type="button" class="btn btn-info" >Painel de Pedidos</a>
@@ -513,6 +522,8 @@ body {
 			</form>
 		</div>
 	</div>
+
+
 
 </body>
 
